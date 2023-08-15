@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hb.collegeprojectdemo.database.dao.ProductRepository
 import com.hb.collegeprojectdemo.database.entity.Product
 import com.hb.collegeprojectdemo.database.dao.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +18,7 @@ sealed class ProductState {
 }
 @ExperimentalCoroutinesApi
 @HiltViewModel
-class ProductViewModel   @Inject constructor(private val repo: UserRepository) : ViewModel() {
+class ProductViewModel   @Inject constructor(private val repo: ProductRepository) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is slideshow Fragment"

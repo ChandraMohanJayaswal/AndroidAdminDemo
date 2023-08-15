@@ -19,11 +19,9 @@ object RepoModule {
     @Singleton
     @Provides
     fun getUserRepository(
-         productDao: ProductDao,
-         categoryDao: CategoryDao,
          userDao: UserDao,
     ): UserRepository {
-        return UserRepository(productDao,categoryDao,userDao)
+        return UserRepository(userDao)
     }
 
 

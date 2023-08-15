@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hb.collegeprojectdemo.database.dao.CategoryRepository
 import com.hb.collegeprojectdemo.database.entity.Category
 import com.hb.collegeprojectdemo.database.entity.User
 import com.hb.collegeprojectdemo.database.dao.UserRepository
@@ -19,7 +20,7 @@ sealed class CategoryState {
 }
 @ExperimentalCoroutinesApi
 @HiltViewModel
-class CategoryViewModel @Inject constructor(private val repo: UserRepository) : ViewModel() {
+class CategoryViewModel @Inject constructor(private val repo: CategoryRepository) : ViewModel() {
 
     private var _getAllCategoryState: MutableLiveData<CategoryState> = MutableLiveData()
     val getAllCategoryState: LiveData<CategoryState> get() = _getAllCategoryState
