@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hb.collegeprojectdemo.database.model.Product
-import com.hb.collegeprojectdemo.repo.CommonRepo
+import com.hb.collegeprojectdemo.database.entity.Product
+import com.hb.collegeprojectdemo.database.dao.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ sealed class ProductState {
 }
 @ExperimentalCoroutinesApi
 @HiltViewModel
-class ProductViewModel   @Inject constructor(private val repo: CommonRepo) : ViewModel() {
+class ProductViewModel   @Inject constructor(private val repo: UserRepository) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is slideshow Fragment"
@@ -28,7 +28,7 @@ class ProductViewModel   @Inject constructor(private val repo: CommonRepo) : Vie
     val addProductState: LiveData<ProductState> get() = _addProductState//After otp validation login state (success or failure)
 
 
-    fun addProduct(id:Int) {
+    fun addProduct(id: Int) {
         _addProductState.postValue(ProductState.IsLoading)
         viewModelScope.launch {
             val productFromDb = repo.getAllProducts(id)
@@ -43,17 +43,20 @@ class ProductViewModel   @Inject constructor(private val repo: CommonRepo) : Vie
                 if (allData.isEmpty()) {
                     _addProductState.postValue(ProductState.Error(message = "error"))
                 } else {
-                    _addProductState.postValue(ProductState.Success(products = repo.getAllProducts(id)))
+                    _addProductState.postValue(
+                        ProductState.Success(
+                            products = repo.getAllProducts(
+                                id
+                            )
+                        )
+                    )
 
                 }
 
-            }else{
+            } else {
                 _addProductState.postValue(ProductState.Success(products = productFromDb))
 
             }
         }
-
     }
-
-
 }

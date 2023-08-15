@@ -1,10 +1,8 @@
-package com.hb.collegeprojectdemo.di
+package com.hb.collegeprojectdemo.database.configuration
 
 
 import android.content.Context
 import androidx.room.Room
-import com.hb.collegeprojectdemo.database.configuration.AppDatabase
-import com.hb.collegeprojectdemo.database.configuration.DatabaseConfigs
 import com.hb.collegeprojectdemo.database.dao.CategoryDao
 import com.hb.collegeprojectdemo.database.dao.ProductDao
 import com.hb.collegeprojectdemo.database.dao.UserDao
@@ -18,11 +16,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DbModule {
+object DatabaseHandler {
 
     @Singleton
     @Provides
-    fun provideDb(@ApplicationContext context: Context): AppDatabase {
+    fun getDatabase(@ApplicationContext context: Context): AppDatabase {
             return Room.databaseBuilder(
                 context,
                 AppDatabase::class.java,
@@ -34,17 +32,17 @@ object DbModule {
 
     @Singleton
     @Provides
-    fun provideUserDao(db: AppDatabase): UserDao {
+    fun getUserDao(db: AppDatabase): UserDao {
         return db.userDao()
     }
     @Singleton
     @Provides
-    fun provideProductDao(db: AppDatabase): ProductDao {
+    fun getProductDao(db: AppDatabase): ProductDao {
         return db.productDao()
     }
     @Singleton
     @Provides
-    fun provideDAO(db: AppDatabase): CategoryDao {
+    fun getCategoryDao(db: AppDatabase): CategoryDao {
         return db.categoryDao()
     }
 

@@ -1,10 +1,11 @@
 package com.hb.collegeprojectdemo.database.configuration
 
 object DatabaseConfigs {
-    const val databaseName = "DB_PRODUCT"
+    const val databaseName = "db_demo"
     const val databaseVersion = 1
-    const val tbl_user = "DB_USER"
-    const val tbl_product = "DB_PRODUCT"
-    const val tbl_category = "DB_CATEGORY"
 
+    /*Tables Inside Database*/
+    const val tbl_user = "tbl_user"
+    const val tbl_product = "tbl_product"
+    const val tbl_category = "tbl_catgory"
 }

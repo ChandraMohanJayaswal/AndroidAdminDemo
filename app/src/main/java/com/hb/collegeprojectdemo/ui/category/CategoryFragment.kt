@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hb.collegeprojectdemo.R
 import com.hb.collegeprojectdemo.adapter.CategoryAdapter
 import com.hb.collegeprojectdemo.dailog.AddCategoryDialog
-import com.hb.collegeprojectdemo.database.model.Category
+import com.hb.collegeprojectdemo.database.entity.Category
 import com.hb.collegeprojectdemo.databinding.FragmentGalleryBinding
 import com.hb.collegeprojectdemo.utils.Preference
 import dagger.hilt.android.AndroidEntryPoint

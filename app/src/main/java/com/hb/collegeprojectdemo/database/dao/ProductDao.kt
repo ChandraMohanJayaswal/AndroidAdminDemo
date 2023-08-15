@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.hb.collegeprojectdemo.database.configuration.DatabaseConfigs
-import com.hb.collegeprojectdemo.database.model.Product
+import com.hb.collegeprojectdemo.database.entity.Product
 
 @Dao
 interface ProductDao {

@@ -1,7 +1,7 @@
 package com.hb.collegeprojectdemo.adapter
 
 import androidx.recyclerview.widget.RecyclerView
-import com.hb.collegeprojectdemo.database.model.Category
+import com.hb.collegeprojectdemo.database.entity.Category
 import com.hb.collegeprojectdemo.databinding.CategoryListViewBinding
 
 

@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.hb.collegeprojectdemo.database.configuration.DatabaseConfigs
-import com.hb.collegeprojectdemo.database.model.Category
+import com.hb.collegeprojectdemo.database.entity.Category
 
 
 @Dao

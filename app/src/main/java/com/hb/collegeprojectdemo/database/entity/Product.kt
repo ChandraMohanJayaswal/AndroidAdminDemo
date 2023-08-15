@@ -1,16 +1,20 @@
-package com.hb.collegeprojectdemo.database.model
+package com.hb.collegeprojectdemo.database.entity
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.hb.collegeprojectdemo.database.RoleType
 import com.hb.collegeprojectdemo.database.configuration.DatabaseConfigs
 import java.io.Serializable
 
-@Entity(
 
-    tableName = DatabaseConfigs.tbl_category
+
+@Entity(
+    tableName = DatabaseConfigs.tbl_product,
+    foreignKeys = [ForeignKey(entity = Category::class, parentColumns = ["id"], childColumns = ["categoryId"])],
+    indices = [Index(value = ["categoryId"])]
 )
-data class Category(
+data class Product(
 
     @PrimaryKey
     val id: Long? = null,
@@ -18,7 +22,8 @@ data class Category(
 
     val name: String,
 
-
+    val price: String,
+    val categoryId: Int // Foreign key referencing Category table
 
     ) : Serializable {
 
@@ -26,7 +31,7 @@ data class Category(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Category
+        other as Product
 
         if (id != other.id) return false
 

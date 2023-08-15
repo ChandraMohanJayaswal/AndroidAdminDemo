@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Window
-import com.hb.collegeprojectdemo.database.model.Category
+import com.hb.collegeprojectdemo.database.entity.Category
 import com.hb.collegeprojectdemo.databinding.PhotosaveDailogBinding
 
 

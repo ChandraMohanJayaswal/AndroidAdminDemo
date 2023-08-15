@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hb.collegeprojectdemo.database.model.Category
-import com.hb.collegeprojectdemo.database.model.User
-import com.hb.collegeprojectdemo.repo.CommonRepo
+import com.hb.collegeprojectdemo.database.entity.Category
+import com.hb.collegeprojectdemo.database.entity.User
+import com.hb.collegeprojectdemo.database.dao.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -19,7 +19,7 @@ sealed class CategoryState {
 }
 @ExperimentalCoroutinesApi
 @HiltViewModel
-class CategoryViewModel @Inject constructor(private val repo: CommonRepo) : ViewModel() {
+class CategoryViewModel @Inject constructor(private val repo: UserRepository) : ViewModel() {
 
     private var _getAllCategoryState: MutableLiveData<CategoryState> = MutableLiveData()
     val getAllCategoryState: LiveData<CategoryState> get() = _getAllCategoryState
@@ -103,15 +103,12 @@ class CategoryViewModel @Inject constructor(private val repo: CommonRepo) : View
                     _getAllCategoryState.postValue(CategoryState.Success(categories = repo.getAllCategory()))
 
                 }
-            } catch (e : Exception){
-                _getAllCategoryState.postValue(CategoryState.Error(message = "error"+ e.message))
+            } catch (e: Exception) {
+                _getAllCategoryState.postValue(CategoryState.Error(message = "error" + e.message))
 
             }
-
-
         }
-
     }
 
-
 }
+    

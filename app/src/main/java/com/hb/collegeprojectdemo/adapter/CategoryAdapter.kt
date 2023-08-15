@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.hb.collegeprojectdemo.database.model.Category
+import com.hb.collegeprojectdemo.database.entity.Category
 import com.hb.collegeprojectdemo.databinding.CategoryListViewBinding
 
 

@@ -13,7 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.hb.collegeprojectdemo.R
 import com.hb.collegeprojectdemo.database.RoleType
-import com.hb.collegeprojectdemo.database.model.User
+import com.hb.collegeprojectdemo.database.entity.User
 import com.hb.collegeprojectdemo.databinding.FragmentLoginBinding
 import com.hb.collegeprojectdemo.utils.Preference
 import com.hb.collegeprojectdemo.utils.Utils
@@ -107,8 +107,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun setUpObservers() {
-        loginViewModel.text.observe(viewLifecycleOwner) {
-        }
+
 
         loginViewModel.loginState.observe(viewLifecycleOwner) {
             when (it) {

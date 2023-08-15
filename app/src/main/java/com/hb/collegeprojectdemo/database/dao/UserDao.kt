@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.hb.collegeprojectdemo.database.configuration.DatabaseConfigs
-import com.hb.collegeprojectdemo.database.model.User
+import com.hb.collegeprojectdemo.database.entity.User
 
 @Dao
 interface UserDao /*: BaseDao<Image> */ {

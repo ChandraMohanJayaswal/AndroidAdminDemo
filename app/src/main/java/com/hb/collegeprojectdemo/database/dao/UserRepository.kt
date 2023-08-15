@@ -1,14 +1,11 @@
-package com.hb.collegeprojectdemo.repo
+package com.hb.collegeprojectdemo.database.dao
 
-import com.hb.collegeprojectdemo.database.dao.CategoryDao
-import com.hb.collegeprojectdemo.database.dao.ProductDao
-import com.hb.collegeprojectdemo.database.dao.UserDao
-import com.hb.collegeprojectdemo.database.model.Category
-import com.hb.collegeprojectdemo.database.model.Product
-import com.hb.collegeprojectdemo.database.model.User
+import com.hb.collegeprojectdemo.database.entity.Category
+import com.hb.collegeprojectdemo.database.entity.Product
+import com.hb.collegeprojectdemo.database.entity.User
 
 
-class CommonRepo constructor(
+class UserRepository constructor(
     private val productDao: ProductDao,
     private val categoryDao: CategoryDao,
     private val userDao: UserDao,
